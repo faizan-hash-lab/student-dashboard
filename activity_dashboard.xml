@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="@color/background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/spacing_large">
+
+        <!-- Top App Bar / Header -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvDashboardWelcome"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dashboard_title"
+                    android:textColor="@color/text_primary"
+                    android:textSize="@dimen/text_title_large"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_tiny"
+                    android:text="@string/dashboard_academic_term"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="@dimen/text_caption" />
+            </LinearLayout>
+
+            <!-- Quick Logout Action in Header -->
+            <ImageButton
+                android:id="@+id/btnQuickLogout"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/btn_logout"
+                android:src="@drawable/ic_logout" />
+        </LinearLayout>
+
+        <!-- Section Title -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_large"
+            android:layout_marginBottom="@dimen/spacing_small"
+            android:text="Academic Modules"
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/text_title_medium"
+            android:textStyle="bold" />
+
+        <!-- Primary Layout Demonstration: GridLayout (2-Column Responsive Card Grid) -->
+        <GridLayout
+            android:id="@+id/gridModules"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="2"
+            android:rowCount="3"
+            android:alignmentMode="alignMargins"
+            android:columnOrderPreserved="false"
+            android:useDefaultMargins="true">
+
+            <!-- 1. Profile Module Card -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardModuleProfile"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_margin="@dimen/spacing_tiny"
+                android:foreground="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardCornerRadius="@dimen/card_corner_radius"
+                app:cardElevation="@dimen/card_elevation"
+                app:cardBackgroundColor="@color/surface">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/spacing_medium"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:contentDescription="@string/module_profile"
+                        android:src="@drawable/ic_profile" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_small"
+                        android:text="@string/module_profile"
+                        android:textColor="@color/text_primary"
+                        android:textSize="@dimen/text_body"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_tiny"
+                        android:text="View Account"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="@dimen/text_caption" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- 2. Courses Module Card -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardModuleCourses"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_margin="@dimen/spacing_tiny"
+                android:foreground="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardCornerRadius="@dimen/card_corner_radius"
+                app:cardElevation="@dimen/card_elevation"
+                app:cardBackgroundColor="@color/surface">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/spacing_medium"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:contentDescription="@string/module_courses"
+                        android:src="@drawable/ic_courses" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_small"
+                        android:text="@string/module_courses"
+                        android:textColor="@color/text_primary"
+                        android:textSize="@dimen/text_body"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_tiny"
+                        android:text="4 Enrolled"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="@dimen/text_caption" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- 3. Assignments Module Card -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardModuleAssignments"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_margin="@dimen/spacing_tiny"
+                android:foreground="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardCornerRadius="@dimen/card_corner_radius"
+                app:cardElevation="@dimen/card_elevation"
+                app:cardBackgroundColor="@color/surface">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/spacing_medium"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:contentDescription="@string/module_assignments"
+                        android:src="@drawable/ic_assignments" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_small"
+                        android:text="@string/module_assignments"
+                        android:textColor="@color/text_primary"
+                        android:textSize="@dimen/text_body"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_tiny"
+                        android:text="3 Pending"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="@dimen/text_caption" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- 4. Schedule Module Card -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardModuleSchedule"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_margin="@dimen/spacing_tiny"
+                android:foreground="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardCornerRadius="@dimen/card_corner_radius"
+                app:cardElevation="@dimen/card_elevation"
+                app:cardBackgroundColor="@color/surface">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/spacing_medium"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:contentDescription="@string/module_schedule"
+                        android:src="@drawable/ic_schedule" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_small"
+                        android:text="@string/module_schedule"
+                        android:textColor="@color/text_primary"
+                        android:textSize="@dimen/text_body"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_tiny"
+                        android:text="Weekly Timetable"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="@dimen/text_caption" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- 5. Settings Module Card (Spans full width or standard slot) -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardModuleSettings"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnSpan="2"
+                android:layout_columnWeight="2"
+                android:layout_margin="@dimen/spacing_tiny"
+                android:foreground="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardCornerRadius="@dimen/card_corner_radius"
+                app:cardElevation="@dimen/card_elevation"
+                app:cardBackgroundColor="@color/surface">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/spacing_medium"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:contentDescription="@string/module_settings"
+                        android:src="@drawable/ic_settings" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="@dimen/spacing_medium"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/module_settings"
+                            android:textColor="@color/text_primary"
+                            android:textSize="@dimen/text_body"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/module_settings_desc"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="@dimen/text_caption" />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+        </GridLayout>
+
+        <!-- Primary Visible Logout Button -->
+        <Button
+            android:id="@+id/btnLogout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_height"
+            android:layout_marginTop="@dimen/spacing_large"
+            android:backgroundTint="@color/surface_variant"
+            android:text="@string/btn_logout"
+            android:textColor="@color/error"
+            android:textStyle="bold"
+            app:icon="@drawable/ic_logout"
+            app:iconTint="@color/error"
+            app:iconGravity="textStart"
+            app:cornerRadius="@dimen/button_corner_radius" />
+
+    </LinearLayout>
+</ScrollView>
